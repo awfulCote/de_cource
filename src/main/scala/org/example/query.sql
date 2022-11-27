@@ -61,3 +61,32 @@ WHERE q1 IN ('D', 'E') OR q2 IN ('D', 'E') OR q3 IN ('D', 'E') OR q4 IN ('D', 'E
 
 SELECT MAX(salary)
 FROM employeers;
+
+SELECT name
+FROM employeers
+ORDER BY salary desc
+LIMIT (1)
+
+SELECT name
+FROM employeers
+ORDER BY name
+
+SELECT level, avg('22.11.2022' - startday)
+FROM employeers
+group by level
+
+
+SELECT employeers.name, departments.name
+FROM employeers JOIN departments
+ON employeers.department = departments.id
+
+SELECT employeers.name as fio, departments.name as department, employeers.salary
+FROM employeers JOIN departments
+ON employeers.department = departments.id
+WHERE employeers.salary = (
+	SELECT salary
+	FROM employeers
+	ORDER BY salary desc
+	LIMIT (1) )
+
+
