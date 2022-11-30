@@ -1,0 +1,28 @@
+
+hadoop fs -put C:/cloud/vim1.txt /user/cloudera
+hadoop fs -put C:/cloud/vim2.txt /user/cloudera
+hadoop fs -put C:/cloud/vim3.txt /user/cloudera
+hadoop fs -put C:/cloud/vim4.txt /user/cloudera
+
+hadoop fs -ls /user/cloudera
+
+hadoop fs -mkdir /user/cloudera/vim
+hadoop fs -mv /user/cloudera/vim1.txt /user/cloudera/vim
+hadoop fs -mv /user/cloudera/vim2.txt /user/cloudera/vim
+hadoop fs -mv /user/cloudera/vim3.txt /user/cloudera/vim
+hadoop fs -mv /user/cloudera/vim4.txt /user/cloudera/vim
+
+
+hadoop fs -cat /user/cloudera/vim/* | hadoop fs -put - /user/cloudera/vim.txt
+
+hadoop fs -chmod 755 /user/cloudera/vim.txt
+hadoop fs -ls /user/cloudera
+
+hadoop fs -ls -h /user/cloudera/vim.txt
+
+hadoop fs -setrep 2 /user/cloudera/vim.txt
+
+hadoop fs -ls -h /user/cloudera/vim.txt
+
+hadoop fs -cat /user/cloudera/vim.txt | wc -l
+
